@@ -1,0 +1,69 @@
+$colors: ('main-text' : #283E3E, 'asisted-text' : #2f4f4f, 'main-back' : #639C9C, 'asisted-back' : #D3D3D3)
+$font-s: ('s' : 12px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
+
+.container
+    height: 100vh
+    color: map-get($colors, main-text)
+
+.header
+    position: relative
+    width: 100%
+    height: 50%
+
+    video
+        width: 100%
+        height: 100%
+        object-fit: cover
+
+    form
+        position: absolute
+        bottom: 75px
+        width: 100%
+        text-align: center
+
+        div
+            position: relative
+            margin: 0 auto
+
+            input
+                width: 100%
+                height: 48px
+                font-size: map-get($font-s, l)
+                padding: 2rem
+                border-radius: 36px
+                border: none
+                outline: none
+
+                &:focus
+                    border: none
+
+                &:focus ~ label, &:valid ~ label
+                    top: -10px
+                    left: 25px
+                    font-size: map-get($font-s, s)
+                    color: map-get($colors, main-text)
+                    background-color: #fff
+                    padding: .4rem 1rem
+                    border-radius: 36px
+
+            label
+                position: absolute
+                font-size: map-get($font-s, m)
+                top: 20px
+                left: 50px
+                transition: 0.2s
+                cursor: text
+
+    .filtered-location
+        position: relative
+        top: -80px
+        margin: 0 auto
+        background-color: #ffffff
+        border: 1px solid red
+
+        ul
+            list-style-type: none
+
+            li
+                padding: 1rem
+                cursor: pointer
