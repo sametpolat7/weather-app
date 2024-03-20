@@ -1,20 +1,18 @@
 import React from 'react';
 import './style/App.css';
 import WeatherInfoProvider from './context/Context';
-import Header from './components/Header/Header';
-import Search from './components/Search/Search';
-import Recent from './components/Recent/Recent';
-import Footer from './components/Footer/Footer';
+import Input from './components/Input/Input';
+import Results from './components/Results/Results';
 
 function App() {
   return (
     <React.Fragment>
       <WeatherInfoProvider>
-        <div className='container'>
-          <Header />
-          <Search />
-          <Recent />
-          <Footer />
+        <div className='main'>
+          <div className='container col-10'>
+            <Input />
+            <Results />
+          </div>
         </div>
       </WeatherInfoProvider>
     </React.Fragment>
