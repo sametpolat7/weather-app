@@ -8,15 +8,12 @@ function App() {
   return (
     <React.Fragment>
       <WeatherInfoProvider>
-        <div className='main'>
-          <div className='container col-10'>
-            <Input />
-            <Results />
-          </div>
+        <div className='container col-10'>
+          <Input />
+          <Results />
         </div>
       </WeatherInfoProvider>
     </React.Fragment>
-
   )
 }
 

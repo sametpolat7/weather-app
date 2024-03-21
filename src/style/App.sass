@@ -1,4 +1,4 @@
-$colors: ('main-text' : #283E3E, 'asisted-text' : #2f4f4f, 'main-back' : #639C9C, 'asisted-back' : #D3D3D3)
+$colors: ('day-text': #011222, 'night-text': #fff)
 $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
 
 /* For mobile phones: */
@@ -8,9 +8,10 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
 .main
     width: 100vw
     height: 100vh
-    color: map-get($colors, main-text)
-    background-color: #f4f4f4
-    overflow-y: scroll
+    overflow: scroll
+    color: map-get($colors, 'day-text')
+    background-color: #fefefe
+    transition: all 0.2s
 
 .container
     margin: 0 auto
@@ -35,7 +36,7 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
                     border: none
 
                 &:focus ~ label, &:valid ~ label
-                    top: -12px
+                    top: -14px
                     left: 50%
                     transform: translateX(-50%)
                     font-size: map-get($font-s, s)
@@ -58,7 +59,7 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
             width: 80%
             max-height: 40vh
             overflow-y: scroll
-            background-color: #ffffff
+            background-color: #fff
             border: 1px solid black
 
             ul
@@ -70,10 +71,8 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
                     display: flex
                     flex-direction: row
                     align-items: center
-                    font-size: clamp(0.6875rem, 0.5833rem + 0.463vw, 1rem)
 
                     &:hover
-                        background-color: map-get($colors, asisted-back)
                         border-radius: 16px
 
                     div:first-child
@@ -95,14 +94,18 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
             overflow-x: scroll
             border: 2px solid green
 
-            div
-                flex: 0 0 108px
-                height: 72px
+            .time-boxes
+                display: flex
+                flex-direction: column
+                justify-content: center
+                align-items: center
+                flex: 0 0 max(10%, 72px)
+                height: 96px
+                margin-right: 1rem
                 border: 1px solid red
 
-
     .current-weather
-        height: 30vh
+        height: 25vh
         margin: 1rem 0
         border: 1px solid black
 
@@ -112,28 +115,33 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
             margin: auto
             border: 2px solid blue
 
-    .cards
-        height: 40vh
-        border: 1px solid orange
+    .footer
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        border: 1px solid black
 
-        .cards-wrapper
-            display: flex
-            height: 100%
-            align-items: center
-            justify-content: center
-            flex-wrap: wrap
-            gap: 2rem
+        .cards
+            padding: 1rem
+            border: 1px solid orange
+
+            .cards-wrapper
+                display: flex
+                flex-wrap: wrap
+
+                div
+                    flex: 0 0 40%
+                    height: 144px
+                    margin: 1rem
+                    border: 1px solid blue
+
+        .daily
+            border: 1px solid red
 
             div
-                flex: 0 0 240px
-                height: 240px
-                border: 1px solid red
-
-
-
-
-
-
+                width: 100%
+                height: 72px
+                border: 1px solid blue
 
 
 

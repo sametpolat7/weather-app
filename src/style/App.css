@@ -6,9 +6,10 @@
 .main {
   width: 100vw;
   height: 100vh;
-  color: #283E3E;
-  background-color: #f4f4f4;
-  overflow-y: scroll;
+  overflow: scroll;
+  color: #011222;
+  background-color: #fefefe;
+  transition: all 0.2s;
 }
 
 .container {
@@ -34,7 +35,7 @@
   border: none;
 }
 .container .search div input:focus ~ label, .container .search div input:valid ~ label {
-  top: -12px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 14px;
@@ -57,7 +58,7 @@
   width: 80%;
   max-height: 40vh;
   overflow-y: scroll;
-  background-color: #ffffff;
+  background-color: #fff;
   border: 1px solid black;
 }
 .container .search .filtered-location ul {
@@ -69,10 +70,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: clamp(0.6875rem, 0.5833rem + 0.463vw, 1rem);
 }
 .container .search .filtered-location ul li:hover {
-  background-color: #D3D3D3;
   border-radius: 16px;
 }
 .container .search .filtered-location ul li div:first-child {
@@ -94,13 +93,18 @@
   overflow-x: scroll;
   border: 2px solid green;
 }
-.container .hourly-weather .hourly-wrapper div {
-  flex: 0 0 108px;
-  height: 72px;
+.container .hourly-weather .hourly-wrapper .time-boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 max(10%, 72px);
+  height: 96px;
+  margin-right: 1rem;
   border: 1px solid red;
 }
 .container .current-weather {
-  height: 30vh;
+  height: 25vh;
   margin: 1rem 0;
   border: 1px solid black;
 }
@@ -110,22 +114,33 @@
   margin: auto;
   border: 2px solid blue;
 }
-.container .cards {
-  height: 40vh;
+.container .footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+.container .footer .cards {
+  padding: 1rem;
   border: 1px solid orange;
 }
-.container .cards .cards-wrapper {
+.container .footer .cards .cards-wrapper {
   display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
 }
-.container .cards .cards-wrapper div {
-  flex: 0 0 240px;
-  height: 240px;
+.container .footer .cards .cards-wrapper div {
+  flex: 0 0 40%;
+  height: 144px;
+  margin: 1rem;
+  border: 1px solid blue;
+}
+.container .footer .daily {
   border: 1px solid red;
+}
+.container .footer .daily div {
+  width: 100%;
+  height: 72px;
+  border: 1px solid blue;
 }
 
 /* For desktop: */

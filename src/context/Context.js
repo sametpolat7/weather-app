@@ -5,33 +5,45 @@ export const WeatherInfoContext = createContext();
 
 export default function WeatherInfoProvider({ children }) {
     const [coords, setCoords] = useState({
-        lat: null,
-        lng: null
+        lat: 40.125,
+        lng: 26.4375
     });
+    const [weatherInfo, setWeatherInfo] = useState([])
 
     const values = {
-        setCoords
+        setCoords,
+        weatherInfo
     }
 
     useEffect(() => {
         const fetchWeatherForecast = async () => {
             const params = {
-                latitude : coords.lat,
+                latitude: coords.lat,
                 longitude: coords.lng,
-                hourly: 'temperature_2m'
+                timezone: 'auto',
+                forecast_hours: 24,
+                hourly: 'temperature_2m,precipitation_probability,weather_code',
+                daily: 'temperature_2m_max,temperature_2m_min,precipitation_probability_mean,weather_code,sunrise,sunset',
+                current: 'temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m,wind_direction_10m'
             }
             const response = await axios('https://api.open-meteo.com/v1/forecast?', { params });
             const data = await response.data;
-            console.log(response);
-            console.log(data);
+            setWeatherInfo(data);
         }
         fetchWeatherForecast();
     }, [coords])
 
+    console.log(weatherInfo);
+
     return (
         <WeatherInfoContext.Provider value={values}>
-            {console.log(coords)}
-            {children}
+            {
+                weatherInfo.length === 0 ? (
+                    <div>Loading...</div>
+                ) : (
+                    <div className="main">{children}</div>
+                )
+            }
         </WeatherInfoContext.Provider>
     );
 }

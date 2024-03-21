@@ -1,6 +1,6 @@
 export function Cards() {
     return (
-        <div className="cards">
+        <div className="cards col-6">
             <div className="cards-wrapper">
                 <div>1</div>
                 <div>2</div>
