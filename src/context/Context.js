@@ -1,28 +1,32 @@
-import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
 export const WeatherInfoContext = createContext();
 
 export default function WeatherInfoProvider({ children }) {
-    const [coords, setCoords] = useState({
-        lat: 40.125,
-        lng: 26.4375
+    const [city, setCity] = useState({
+        cityName: 'Çanakkale',
+        coords: {
+            lat: 40.125,
+            lng: 26.4375
+        }
     });
     const [weatherInfo, setWeatherInfo] = useState([])
 
     const values = {
-        setCoords,
+        city,
+        setCity,
         weatherInfo
     }
 
     useEffect(() => {
         const fetchWeatherForecast = async () => {
             const params = {
-                latitude: coords.lat,
-                longitude: coords.lng,
+                latitude: city.coords.lat,
+                longitude: city.coords.lng,
                 timezone: 'auto',
                 forecast_hours: 24,
-                hourly: 'temperature_2m,precipitation_probability,weather_code',
+                hourly: 'temperature_2m,precipitation_probability,weather_code,is_day',
                 daily: 'temperature_2m_max,temperature_2m_min,precipitation_probability_mean,weather_code,sunrise,sunset',
                 current: 'temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m,wind_direction_10m'
             }
@@ -31,9 +35,7 @@ export default function WeatherInfoProvider({ children }) {
             setWeatherInfo(data);
         }
         fetchWeatherForecast();
-    }, [coords])
-
-    console.log(weatherInfo);
+    }, [city])
 
     return (
         <WeatherInfoContext.Provider value={values}>

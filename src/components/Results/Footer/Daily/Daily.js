@@ -1,4 +1,5 @@
-export function Daily() {
+export function Daily({dailyInfo}) {
+    console.log(dailyInfo);
     return(
         <div className="daily col-6">
             <div>1</div>

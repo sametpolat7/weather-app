@@ -1,3 +1,5 @@
+/* Variables */
+/* Mixins */
 /* For mobile phones: */
 [class*=col-] {
   width: 100%;
@@ -6,7 +8,7 @@
 .main {
   width: 100vw;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   color: #011222;
   background-color: #fefefe;
   transition: all 0.2s;
@@ -84,11 +86,36 @@
 .container .hourly-weather {
   display: flex;
   align-items: center;
-  height: 20vh;
+  height: 15vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   border: 2px solid blue;
+}
+.container .hourly-weather #prev {
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 36px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.container .hourly-weather #next {
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 36px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .container .hourly-weather .hourly-wrapper {
   display: flex;
+  align-items: center;
+  height: 100%;
   margin: 0 auto;
   overflow-x: scroll;
   border: 2px solid green;
@@ -104,35 +131,68 @@
   border: 1px solid red;
 }
 .container .current-weather {
-  height: 25vh;
+  height: 40vh;
   margin: 1rem 0;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 .container .current-weather .current-wrapper {
-  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   margin: auto;
-  border: 2px solid blue;
+  border: 1px solid red;
+}
+.container .current-weather .current-wrapper > :nth-child(1) {
+  font-size: 3rem;
+}
+.container .current-weather .current-wrapper > :nth-child(2) {
+  font-size: 5rem;
+}
+.container .current-weather .current-wrapper > :nth-child(3) {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+.container .current-weather .current-wrapper > :nth-child(3) > * {
+  width: 33%;
+  margin-right: 1rem;
+  text-align: center;
 }
 .container .footer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border: 1px solid black;
 }
 .container .footer .cards {
-  padding: 1rem;
-  border: 1px solid orange;
+  margin-bottom: 2rem;
+  border: 3px solid orange;
 }
 .container .footer .cards .cards-wrapper {
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
 }
-.container .footer .cards .cards-wrapper div {
+.container .footer .cards .cards-wrapper > * {
   flex: 0 0 40%;
   height: 144px;
-  margin: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 2rem 2rem 1rem;
   border: 1px solid blue;
+}
+.container .footer .cards .cards-wrapper > * > :first-child {
+  font-size: 16px;
+}
+.container .footer .cards .cards-wrapper > * > :last-child {
+  text-align: right;
+  font-size: 4rem;
+  font-weight: 400;
 }
 .container .footer .daily {
   border: 1px solid red;

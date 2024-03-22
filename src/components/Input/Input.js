@@ -6,8 +6,9 @@ function Input() {
     const [location, setLocation] = useState('');
     const [resultCount, setResultCount] = useState(0)
     const [cities, setCities] = useState([]);
+    const [isFocus, setIsFocus] = useState(false);
 
-    const { setCoords } = useWeatherInfo();
+    const { city, setCity } = useWeatherInfo();
 
     useEffect(() => {
         if (location.length > 0) {
@@ -40,11 +41,16 @@ function Input() {
         setLocation(e.target.value);
     })
 
-    const handleClick = (lat, lng) => {
-        setCoords({
-            lat: lat,
-            lng: lng
-        });
+    const handleClick = (name, lat, lng) => {
+        setCity({
+            ...city,
+            cityName: name,
+            coords: {
+                ...city.coords,
+                lat: lat,
+                lng: lng
+            }
+        })
     }
     return (
         <div className='search'>
@@ -54,6 +60,12 @@ function Input() {
                         id='search'
                         value={location}
                         onChange={handleChange}
+                        onFocus={() => setIsFocus(true)}
+                        onBlur={() => {
+                            return setTimeout(() => {
+                                setIsFocus(false)
+                            }, 50)
+                        }}
                         autoComplete='off'
                         required
                     />
@@ -61,7 +73,7 @@ function Input() {
                 </div>
             </form>
             {
-                location.length > 0 &&
+                isFocus &&
                 <div className='filtered-location'>
                     <ul>
                         {
@@ -70,9 +82,8 @@ function Input() {
                                     return (
                                         <li
                                             key={city.geonameId}
-                                            onClick={() => handleClick(city.lat, city.lng)}
-                                            >
-                                            
+                                            onClick={() => handleClick(city.toponymName, city.lat, city.lng)}
+                                        >
                                             <div>
                                                 <p><b>{city.toponymName}</b></p>
                                                 <p>{` ${city.adminName1} ${city.countryName}`}</p>

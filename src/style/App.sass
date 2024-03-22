@@ -1,5 +1,17 @@
+/* Variables */
 $colors: ('day-text': #011222, 'night-text': #fff)
 $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
+
+/* Mixins */
+@mixin hourlyButtons()
+    width: 40px
+    height: 40px
+    line-height: 38px
+    text-align: center
+    border-radius: 50%
+    font-size: 36px
+    cursor: pointer
+    background-color: rgba(0, 0, 0, 0.2)
 
 /* For mobile phones: */
 [class*="col-"]
@@ -8,7 +20,7 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
 .main
     width: 100vw
     height: 100vh
-    overflow: scroll
+    overflow-y: scroll
     color: map-get($colors, 'day-text')
     background-color: #fefefe
     transition: all 0.2s
@@ -85,11 +97,19 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
     .hourly-weather
         display: flex
         align-items: center
-        height: 20vh
+        height: 15vh
+        user-select: none
         border: 2px solid blue
+
+        #prev
+            @include hourlyButtons() // Desktop olacak Buradan Kalkacak
+        #next
+            @include hourlyButtons()
 
         .hourly-wrapper
             display: flex
+            align-items: center
+            height: 100%
             margin: 0 auto
             overflow-x: scroll
             border: 2px solid green
@@ -105,35 +125,68 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
                 border: 1px solid red
 
     .current-weather
-        height: 25vh
+        height: 40vh
         margin: 1rem 0
-        border: 1px solid black
+        border: 2px solid black
 
         .current-wrapper
-            width: 80%
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
             height: 100%
             margin: auto
-            border: 2px solid blue
+            border: 1px solid red
+
+            & > :nth-child(1)
+                font-size: 3rem
+            & > :nth-child(2)
+                font-size: 5rem
+            & > :nth-child(3)
+                display: flex
+                width: 100%
+                justify-content: space-between
+                font-size: 1.5rem
+
+                & > *
+                    width: 33%
+                    margin-right: 1rem
+                    text-align: center
 
     .footer
         display: flex
         flex-direction: column
-        justify-content: space-between
         border: 1px solid black
 
         .cards
-            padding: 1rem
-            border: 1px solid orange
+            margin-bottom: 2rem
+            border: 3px solid orange
 
             .cards-wrapper
                 display: flex
+                justify-content: space-evenly
+                align-items: center
                 flex-wrap: wrap
 
-                div
+                & > *
                     flex: 0 0 40%
                     height: 144px
-                    margin: 1rem
+                    margin: 1rem 0
+                    display: flex
+                    flex-direction: column
+                    justify-content: space-between
+                    padding: 1rem 2rem 2rem 1rem
                     border: 1px solid blue
+
+                    & > :first-child
+                        font-size: map-get($font-s, m)
+                    & > :last-child
+                        text-align: right
+                        font:
+                            size: 4rem
+                            weight: 400
+
+
 
         .daily
             border: 1px solid red
@@ -183,3 +236,8 @@ $font-s: ('s' : 14px, 'm' : 16px, 'l' : 20px, 'xl' : 24px)
 
     .col-12
         width: 100%
+
+
+// Search Bar
+// Serch Dropdown
+// Prev And Next Button
