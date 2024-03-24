@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useWeatherInfo } from "../../../hooks/useWeatherInfo";
 import weatherIcons from "../../../assets/weather-icons/weatherIcons";
+import { IconsFunction } from "../../Shared/IconsFunction";
 
 export function Hourly() {
     const wrapper = useRef(null)
@@ -8,13 +9,10 @@ export function Hourly() {
 
     const hourlyInfo = weatherInfo.hourly;
     const dailyInfo = weatherInfo.daily; // For sunrise - sunset infos.
-    const todaySunrise = new Date(dailyInfo.sunrise[0]).getHours();
-    const todaySunset = new Date(dailyInfo.sunset[0]).getHours();
+    const srise = new Date(dailyInfo.sunrise[0]).getHours();
+    const sset = new Date(dailyInfo.sunset[0]).getHours();
 
     const icons = hourlyInfo.weather_code;
-    console.log('icons', icons);
-    console.log('hourlyInfo', hourlyInfo);
-    console.log('hourlyInfo.time', hourlyInfo.time);
 
     let slidingHourly;
     const handleMouseDown = (e) => {
@@ -57,33 +55,17 @@ export function Hourly() {
                                 <div>
                                     {
                                         (() => {
-                                            if (new Date(time).getHours() === todaySunrise) {
+                                            if (new Date(time).getHours() === srise) {
                                                 return <img src={weatherIcons.sunrise} alt="sunrise" />
                                             }
-                                            else if (new Date(time).getHours() === todaySunset) {
+                                            else if (new Date(time).getHours() === sset) {
                                                 return <img src={weatherIcons.sunset} alt="sunset" />
                                             }
                                             else if (hourlyInfo.is_day[index] === 0) {
                                                 return <img src={weatherIcons.night} alt="night" />
                                             }
                                             else {
-                                                if (icons[index] === 0) {
-                                                    return <img src={weatherIcons.sunny} alt="sunny" />;
-                                                } else if (icons[index] > 0 && icons[index] <= 3) {
-                                                    return <img src={weatherIcons.cloudy} alt="cloudy" />;
-                                                } else if (icons[index] >= 45 && icons[index] <= 48) {
-                                                    return <img src={weatherIcons.fog} alt="fog" />;
-                                                } else if (icons[index] >= 51 && icons[index] <= 67) {
-                                                    return <img src={weatherIcons.rainy} alt="rainy" />;
-                                                } else if (icons[index] >= 71 && icons[index] <= 77) {
-                                                    return <img src={weatherIcons.snowy} alt="snowy" />;
-                                                } else if (icons[index] >= 80 && icons[index] <= 82) {
-                                                    return <img src={weatherIcons.rainy} alt="rainy" />;
-                                                } else if (icons[index] >= 95 && icons[index] <= 99) {
-                                                    return <img src={weatherIcons.thunderstorm} alt="thunderstorm" />;
-                                                } else {
-                                                    return <img src={weatherIcons.cloudy} alt="cloudy" />;
-                                                }
+                                                return <IconsFunction condition={icons[index]} />
                                             }
                                         })()
                                     }

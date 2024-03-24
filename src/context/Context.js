@@ -11,7 +11,7 @@ export default function WeatherInfoProvider({ children }) {
             lng: 26.4375
         }
     });
-    const [weatherInfo, setWeatherInfo] = useState([])
+    const [weatherInfo, setWeatherInfo] = useState([]);
 
     const values = {
         city,
@@ -41,7 +41,14 @@ export default function WeatherInfoProvider({ children }) {
         <WeatherInfoContext.Provider value={values}>
             {
                 weatherInfo.length === 0 ? (
-                    <div>Loading...</div>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        height: '100vh',
+                        alignItems: 'center'
+                    }}>
+                        <div style={{fontSize: '64px'}}>LOADING...</div>
+                    </div>
                 ) : (
                     <div className="main">{children}</div>
                 )

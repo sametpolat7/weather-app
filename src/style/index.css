@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&family=Roboto:wght@100;300&display=swap');
 
 html {
-  font-size: clamp(0.6875rem, 0.5833rem + 0.463vw, 1rem)
+  font-size: clamp(0.75rem, 0.6799rem + 0.3297vw, 1.125rem);
 }
 
 * {
@@ -11,12 +11,12 @@ html {
 }
 
 *::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 3px;
+  height: 2px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #011222;
+  background-color: #087EA4;
   border-radius: 8px;
 }
 

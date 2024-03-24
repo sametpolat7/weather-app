@@ -1,4 +1,4 @@
-import { Footer } from "./Footer/Footer";
+import { SubResults } from './SubResults/SubResults'
 import { Current } from "./Current/Current";
 import { Hourly } from "./Hourly/Hourly";
 
@@ -7,7 +7,7 @@ function Results() {
         <>
             <Hourly />
             <Current />
-            <Footer />
+            <SubResults />
         </>
     )
 }

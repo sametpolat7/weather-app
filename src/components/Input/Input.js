@@ -4,7 +4,6 @@ import { useWeatherInfo } from '../../hooks/useWeatherInfo'
 
 function Input() {
     const [location, setLocation] = useState('');
-    const [resultCount, setResultCount] = useState(0)
     const [cities, setCities] = useState([]);
     const [isFocus, setIsFocus] = useState(false);
 
@@ -25,10 +24,9 @@ function Input() {
                     const response = await axios('http://api.geonames.org/search?', { params });
                     const cities = await response.data;
                     setCities(cities.geonames);
-                    setResultCount(cities.totalResultsCount);
                 }
                 catch (err) {
-                    console.log(err);
+                    console.log(err.code + ' ' + err.message);
                 }
             }, 500)
             return () => {
@@ -64,12 +62,13 @@ function Input() {
                         onBlur={() => {
                             return setTimeout(() => {
                                 setIsFocus(false)
-                            }, 50)
+                            }, 200)
                         }}
                         autoComplete='off'
+                        spellCheck={false}
                         required
                     />
-                    <label htmlFor='search'>Search City</label>
+                    <label htmlFor='search'>Discover your city's weather forecast!</label>
                 </div>
             </form>
             {
@@ -77,7 +76,7 @@ function Input() {
                 <div className='filtered-location'>
                     <ul>
                         {
-                            resultCount !== 0 ? (
+                            cities.length !== 0 ? (
                                 cities.map((city) => {
                                     return (
                                         <li
