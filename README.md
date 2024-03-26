@@ -6,7 +6,7 @@ This project is a weather application programmed with React and styled with Sass
 
 ## Live
 
-[WordBook App](https://wordbook-app-v1.netlify.app/)
+[Weather App](https://forecastlify-weather-app.netlify.app/)
 
 
 ## Features
