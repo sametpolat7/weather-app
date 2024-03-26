@@ -12,7 +12,7 @@ export function Current() {
     console.log(dailyInfo);
 
     let imgSelecter;
-    if(currentInfo.is_day !== 1) {
+    if(currentInfo.is_day !== 0) {
         switch (weatherStatus) {
             case 'Clear sky':
                 imgSelecter = 'sunny'
@@ -55,7 +55,7 @@ export function Current() {
                         &nbsp;&nbsp;
                         <span>H: {dailyInfo.temperature_2m_max[0].toFixed(0)}°</span>
                     </div>
-                    <div >{weatherStatus}</div>
+                    <div>{weatherStatus}</div>
                     <div>P: {currentInfo.precipitation}%</div>
                 </div>
             </div>
