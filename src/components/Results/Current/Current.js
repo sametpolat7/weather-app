@@ -8,9 +8,6 @@ export function Current() {
     const dailyInfo = weatherInfo.daily;
     const weatherStatus = weatherCodeMeans[currentInfo.weather_code];
 
-    console.log(currentInfo);
-    console.log(dailyInfo);
-
     let imgSelecter;
     if(currentInfo.is_day !== 0) {
         switch (weatherStatus) {

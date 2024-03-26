@@ -21,7 +21,7 @@ function Input() {
                     username: "sametpolat7"
                 };
                 try {
-                    const response = await axios('http://api.geonames.org/search?', { params });
+                    const response = await axios('https://api.geonames.org/search?', { params });
                     const cities = await response.data;
                     setCities(cities.geonames);
                 }

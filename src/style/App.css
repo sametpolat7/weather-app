@@ -401,7 +401,7 @@
   }
   .container .search div input {
     width: 100%;
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1.5rem;
     font-size: 1.25rem;
     font-weight: 500;
     border-radius: 36px;
@@ -419,7 +419,7 @@
   }
   .container .search div label {
     position: absolute;
-    top: 16px;
+    top: 14px;
     left: 30px;
     transition: 0.2s;
     cursor: text;
