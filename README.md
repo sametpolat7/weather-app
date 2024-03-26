@@ -1,6 +1,6 @@
 # Weather App
 
-This project is a weather application programmed with React and styled with Sass. The data used in the application is provided by two APIs. The first is the 'geoNames API', which is used for the autocomplete feature added to the input tag. This API provides the location names of cities with a population of 5000 or more. The second is the 'Open Meteo API', which provides information for weather and events. This API provides current, daily and weekly weather data.
+This project is a weather application built using React. Current, hourly and daily weather data is provided using the Open Meteo API. The city data for the auto-complete attribute added to the search section is also provided with the Geocoding API via Open Meteo. The project is styled using the Sass preprocessor. It has a responsive design. 
 
 ![Weather App](/src/assets/weather-app-page.png)
 

@@ -13,17 +13,13 @@ function Input() {
         if (location.length > 0) {
             const debounced = setTimeout(async () => {
                 const params = {
-                    name_startsWith: location,
-                    cities: "cities5000",
-                    maxRows: 10,
-                    type: "json",
-                    orderby: "population",
-                    username: "sametpolat7"
+                    name: location,
+                    count: 6
                 };
                 try {
-                    const response = await axios('https://api.geonames.org/search?', { params });
+                    const response = await axios('https://geocoding-api.open-meteo.com/v1/search', { params });
                     const cities = await response.data;
-                    setCities(cities.geonames);
+                    setCities(cities.results);
                 }
                 catch (err) {
                     console.log(err.code + ' ' + err.message);
@@ -76,20 +72,20 @@ function Input() {
                 <div className='filtered-location'>
                     <ul>
                         {
-                            cities.length !== 0 ? (
+                            cities ? (
                                 cities.map((city) => {
                                     return (
                                         <li
-                                            key={city.geonameId}
-                                            onClick={() => handleClick(city.toponymName, city.lat, city.lng)}
+                                            key={city.id}
+                                            onClick={() => handleClick(city.name, city.latitude, city.longitude)}
                                         >
                                             <div>
-                                                <p><b>{city.toponymName}</b></p>
-                                                <p>{` ${city.adminName1} ${city.countryName}`}</p>
+                                                <p><b>{city.name}</b></p>
+                                                <p>{` ${city.country} ${city.country_code}`}</p>
                                             </div>
                                             <div>
-                                                <p>Latitude : {city.lat}</p>
-                                                <p>Longitude : {city.lng}</p>
+                                                <p>Latitude : {city.latitude}</p>
+                                                <p>Longitude : {city.longitude}</p>
                                             </div>
                                         </li>
                                     )
