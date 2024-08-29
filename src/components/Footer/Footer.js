@@ -9,7 +9,7 @@ function Footer() {
                     <p>© 2024 Forecastify, Inc</p>
                 </div>
                 <div>
-                    <a href='https://www.linkedin.com/in/sametpolat17/' target='_blank' rel='noreferrer'>
+                    <a href='https://www.linkedin.com/in/sametpolat7/' target='_blank' rel='noreferrer'>
                         <i class="fa-brands fa-linkedin fa-xl"></i>
                     </a>
                     <a href='https://www.instagram.com/sametpolat7/' target='_blank' rel='noreferrer'>

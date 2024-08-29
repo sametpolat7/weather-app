@@ -28,4 +28,4 @@ This project is a weather application built using React. Current, hourly and dai
 - FontAwesome
 
 
-**Author :** [Samet Polat](https://www.linkedin.com/in/sametpolat17/)
+**Author :** [Samet Polat](https://www.linkedin.com/in/sametpolat7/)
