@@ -1,0 +1,87 @@
+@use 'variables' as *;
+
+.hourly {
+  &__scroller {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__track {
+    flex: 1;
+    display: flex;
+    gap: 0.75rem;
+    min-width: 0;
+    padding: 0.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__item {
+    @include card;
+    flex: 0 0 5.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.75rem 0.5rem;
+    scroll-snap-align: start;
+
+    &.is-now {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-primary-soft);
+
+      .hourly__time {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__time {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  &__temp {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  &__rain {
+    min-height: 1.1em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-rain);
+  }
+
+  &__nav {
+    display: none;
+    flex: 0 0 auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    box-shadow: var(--shadow-sm);
+    transition: color 0.15s, border-color 0.15s;
+
+    &:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+
+    @include md {
+      display: inline-flex;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@use 'variables' as *;
+
+.current {
+  position: relative;
+  display: flex;
+  min-height: 21rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #1e293b;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  box-shadow: var(--shadow-md);
+
+  &__overlay {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, rgba(8, 15, 30, 0.2) 0%, rgba(8, 15, 30, 0.62) 100%);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+
+    @include md {
+      min-height: 24rem;
+      padding: 2rem 2.5rem;
+    }
+  }
+
+  &__location {
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.2;
+
+      @include md {
+        font-size: 2.25rem;
+      }
+    }
+
+    p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+  }
+
+  &__main {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__icon {
+    color: #fff;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+
+    svg {
+      width: 4.5rem;
+      height: 4.5rem;
+
+      @include md {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+  }
+
+  &__temp {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+
+    @include md {
+      font-size: 5.5rem;
+    }
+  }
+
+  &__condition {
+    margin-top: 0.25rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+
+    > div {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    dt {
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    dd {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+  }
+
+  &__updated {
+    font-size: 0.8rem;
+    opacity: 0.85;
+  }
+}
