@@ -1,11 +1,11 @@
-const weatherBackgrounds = {
-    sunny: require('./sunny-back.jpg'),
-    cloudy: require('./cloudy-back.jpg'),
-    fog: require('./fog-back.jpg'),
-    night: require('./night-back.jpg'),
-    snowy: require('./snowy-back.jpg'),
-    thunderstorm: require('./thunderstorm-back.jpg'),
-    rainy: require('./rainy-back.jpg')
-}
+import sunny from './sunny-back.jpg'
+import cloudy from './cloudy-back.jpg'
+import fog from './fog-back.jpg'
+import night from './night-back.jpg'
+import snowy from './snowy-back.jpg'
+import thunderstorm from './thunderstorm-back.jpg'
+import rainy from './rainy-back.jpg'
 
-export default weatherBackgrounds;
+const weatherBackgrounds = { sunny, cloudy, fog, night, snowy, thunderstorm, rainy }
+
+export default weatherBackgrounds
