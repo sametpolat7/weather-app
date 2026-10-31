@@ -4,10 +4,6 @@ Forecastify is a React weather app that shows the current conditions, the next 2
 
 ![Weather App](/src/assets/weather-app-page.png)
 
-## Live
-
-[Weather App](https://forecastlify-weather-app.netlify.app/)
-
 ## Features
 
 - City search with debounced auto-complete, keyboard navigation (↑ ↓ Enter Esc) and region/country disambiguation
@@ -56,4 +52,3 @@ src/
 
 Weather data by [Open-Meteo.com](https://open-meteo.com/) (CC BY 4.0). Icons by [Lucide](https://lucide.dev/).
 
-**Author :** [Samet Polat](https://www.linkedin.com/in/sametpolat7/)
